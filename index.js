@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
 });
 
 app.post("/slack-request", function(httpRequest, httpResponse) {
-  var cmdPattern = /build ([\w:\w ])*/i;
+  var cmdPattern = /deploy ([\w:\w ])*/i;
   if (httpRequest.body.text) {
     console.log("text",httpRequest.body.text)
     console.log("command",httpRequest.body.text)
