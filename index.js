@@ -12,12 +12,9 @@ app.get('/', function(request, response) {
 });
 
 app.post("/slack-request", function(httpRequest, httpResponse) {
-  var cmdPattern = /deploy ([\w:\w ])*;
-
+  var cmdPattern = /build ([\w:\w ])*/i;
   if (httpRequest.body.text) {
     var command = cmdPattern.exec(httpRequest.body.text);
-    console.log(command)
-    
     var repoName = command[1];
     var branch = command[2]; 
 
