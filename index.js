@@ -17,9 +17,9 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     console.log("text",httpRequest.body.text)
     console.log("command",httpRequest.body.text)
     var command = cmdPattern.exec(httpRequest.body.text);
+    console.log("command Array ",command)
     var repoName = command[1];
     var branch = command[2]; 
-    console.log("command Array ",command)
     rqst.post({
       url: 'https://api.travis-ci.org/repo/' + encodeURIComponent(repoName) + '/requests',
       headers: {
