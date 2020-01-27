@@ -25,7 +25,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     }
 
     if (repository == "android") {
-      helper.buidlAndroid(commands);
+      helper.buildAndroid(commands);
     } else if (repository == "") {
       helper.buildIos(commands);
     } else {

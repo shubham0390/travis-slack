@@ -1,7 +1,7 @@
 var rqst = require("request");
 var bodyParser = require("body-parser");
 
- function buidlAndroid(commands) {
+ module.exports.buildAndroid = function buidlAndroid(commands) {
   var branch = "development";
   if (commands >= 2) {
       branch = commands[2]
@@ -17,7 +17,7 @@ var bodyParser = require("body-parser");
     distribution = commands[4]
   }
 
-  var enableDriveUpload = "enableDriveUpload:true"
+  var enableDriveUpload = "enableDriveUpload:false"
   if(commands>=5){
     enableDriveUpload = commands[5]
   }
@@ -32,16 +32,14 @@ var bodyParser = require("body-parser");
         "Content-Type": "application/json",
         Accept: "application/json",
         "Travis-API-Version": "3",
-        Authorization: "token " + process.env.TRAVIS_API_TOKEN
+        Authorization: "token " + "3JErSyzRokBRfwTT4NrgrQ"
       },
       json: true,
       body: {
         message: "build by " + httpRequest.body.user_name,
         branch: branch,
         config: {
-          language: "node_js",
-          node_js: "6.0",
-          script: "echo Hello World"
+          script: "bundle exec fastlane deployMindTickle" + appName + distribution + enableDriveUpload
         }
       }
     },
@@ -56,5 +54,4 @@ var bodyParser = require("body-parser");
   );
 }
 
- function buildIos(commands) {}
-module.exports
+module.exports.buildIos = function buildIos(commands) {}
