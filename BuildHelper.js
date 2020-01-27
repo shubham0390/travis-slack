@@ -72,8 +72,6 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
       }
     }
   );
-
-  response.addListener();
 };
 
 module.exports.buildIos = function buildIos(commands, httpRequest) {};
