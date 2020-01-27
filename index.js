@@ -20,7 +20,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     var repository = "android";
 
     if (commands.length >= 1) {
-      repository = commands[1];
+      repository = commands[0];
       console.log("Executing with repository" + repository);
     } else {
       console.log("Executing with default repository");

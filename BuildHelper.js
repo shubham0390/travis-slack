@@ -3,32 +3,32 @@ var bodyParser = require("body-parser");
 
 module.exports.buildAndroid = function buidlAndroid(commands) {
   var branch = "development";
-  if (commands >= 2) {
-    branch = commands[2];
+  if (commands >= 1) {
+    branch = commands[1];
     console.log("Executing with branch" + branch);
   } else {
     console.log("Executing with default branch");
   }
 
   var appName = "appName:Mindtickleapp";
-  if (commands >= 3) {
-    appName = commands[3];
+  if (commands >= 2) {
+    appName = commands[2];
     console.log("Executing with app" + appName);
   } else {
     console.log("Executing with default app");
   }
 
   var distribution = "distribution:firebase";
-  if (commands >= 4) {
-    distribution = commands[4];
+  if (commands >= 3) {
+    distribution = commands[3];
     console.log("Executing with distribution" + distribution);
   } else {
     console.log("Executing with default distribution");
   }
 
   var enableDriveUpload = "enableDriveUpload:false";
-  if (commands >= 5) {
-    enableDriveUpload = commands[5];
+  if (commands >= 4) {
+    enableDriveUpload = commands[4];
     console.log("Executing with enableDriveUpload" + enableDriveUpload);
   } else {
     console.log("Executing with default drive upload");
