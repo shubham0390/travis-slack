@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var rqst = require("request");
 var app = express();
-var  helper =  require( "./BuildHelper");
+var helper = require("./BuildHelper");
 
 app.set("port", process.env.PORT || 5000);
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,13 +21,17 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
 
     if (commands.length >= 1) {
       repository = commands[1];
+      console.log("Executing with repository" + repository);
+    } else {
+      console.log("Executing with default repository");
     }
 
+    console.log("Final repository" + repository);
     if (repository == "android") {
-      console.log("Executing android build")
+      console.log("Executing android build");
       helper.buildAndroid(commands);
     } else if (repository == "") {
-      console.log("Executing ios build")
+      console.log("Executing ios build");
       helper.buildIos(commands);
     } else {
       // Send build failed message
