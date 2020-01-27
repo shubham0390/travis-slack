@@ -35,7 +35,7 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
   }
 
   console.log("Executing final request");
-  var response = rqst.post(
+  rqst.post(
     {
       url:
         "https://api.travis-ci.org/repo/" +
