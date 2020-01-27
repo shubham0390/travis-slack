@@ -17,7 +17,6 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     console.log("text", httpRequest.body.text);
     var commands = commandText.split(" ");
     console.log("command Array ", commands);
-
     var repository = "android";
 
     if (commands.length >= 1) {
@@ -25,8 +24,10 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     }
 
     if (repository == "android") {
+      console.log("Executing android build")
       helper.buildAndroid(commands);
     } else if (repository == "") {
+      console.log("Executing ios build")
       helper.buildIos(commands);
     } else {
       // Send build failed message
