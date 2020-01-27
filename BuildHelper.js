@@ -1,7 +1,7 @@
 var rqst = require("request");
 var bodyParser = require("body-parser");
 
-module.exports.buildAndroid = function buidlAndroid(commands) {
+module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
   var branch = "development";
   if (commands >= 1) {
     branch = commands[1];
@@ -34,7 +34,7 @@ module.exports.buildAndroid = function buidlAndroid(commands) {
     console.log("Executing with default drive upload");
   }
 
-  console.log("Executing final request")
+  console.log("Executing final request");
   rqst.post(
     {
       url:
@@ -71,4 +71,4 @@ module.exports.buildAndroid = function buidlAndroid(commands) {
   );
 };
 
-module.exports.buildIos = function buildIos(commands) {};
+module.exports.buildIos = function buildIos(commands, httpRequest) {};
