@@ -35,7 +35,7 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
   }
 
   console.log("Executing final request");
-  rqst.post(
+  var response = rqst.post(
     {
       url:
         "https://api.travis-ci.org/repo/" +
@@ -67,8 +67,13 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
           text: "Started build for " + repoName + " on branch " + branch
         });
       }
+      console.log("error:", error); // Print the error if one occurred
+      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
+      console.log("body:", body); // Print the HTML for the Google homepage.
     }
   );
+
+  response.addListener();
 };
 
 module.exports.buildIos = function buildIos(commands, httpRequest) {};
