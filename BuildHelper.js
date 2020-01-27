@@ -60,8 +60,8 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
         }
       }
     },
-    function(error, res, body) {
-      if (!error && res.statusCode == 202) {
+    function(error, response, body) {
+      if (!error && response.statusCode == 202) {
         httpResponse.send({
           response_type: "in_channel",
           text: "Started build for " + repoName + " on branch " + branch
