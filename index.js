@@ -29,10 +29,10 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     console.log("Final repository" + repository);
     if (repository == "android") {
       console.log("Executing android build");
-      helper.buildAndroid(commands, httpRequest);
+      helper.buildAndroid(commands, httpRequest,httpResponse);
     } else if (repository == "") {
       console.log("Executing ios build");
-      helper.buildIos(commands, httpRequest);
+      helper.buildIos(commands, httpRequest,httpResponse);
     } else {
       // Send build failed message
     }

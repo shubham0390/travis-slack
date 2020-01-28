@@ -1,7 +1,7 @@
 var rqst = require("request");
 var bodyParser = require("body-parser");
 
-module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
+module.exports.buildAndroid = function buidlAndroid(commands, httpRequest,httpResponse) {
   var branch = "development";
   if (commands >= 1) {
     branch = commands[1];
@@ -45,7 +45,7 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
         "Content-Type": "application/json",
         Accept: "application/json",
         "Travis-API-Version": "3",
-        Authorization: "token " + "3JErSyzRokBRfwTT4NrgrQ"
+        Authorization: "token " + "uOmAmycRklFHOrOWCO_4BA"
       },
       json: true,
       body: {
@@ -76,4 +76,4 @@ module.exports.buildAndroid = function buidlAndroid(commands, httpRequest) {
   );
 };
 
-module.exports.buildIos = function buildIos(commands, httpRequest) {};
+module.exports.buildIos = function buildIos(commands, httpRequest,httpResponse) {};
