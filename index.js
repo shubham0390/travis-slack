@@ -21,7 +21,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
 
     if (commands.length >= 1) {
       repository = commands[0];
-      console.log("Executing with repository" + repository);
+      console.log("Executing with repository " + repository);
     } else {
       console.log("Executing with default repository");
     }
@@ -30,7 +30,7 @@ app.post("/slack-request", function(httpRequest, httpResponse) {
     if (repository == "android") {
       console.log("Executing android build");
       helper.buildAndroid(commands, httpRequest,httpResponse);
-    } else if (repository == "") {
+    } else if (repository == "ios") {
       console.log("Executing ios build");
       helper.buildIos(commands, httpRequest,httpResponse);
     } else {
